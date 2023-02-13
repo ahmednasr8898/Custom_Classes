@@ -30,11 +30,6 @@ class RateView: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        
-        /// Adding a UITapGestureRecognizer to our stack of stars to handle clicking on a star
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(rateWasTapped))
-        stackView.addGestureRecognizer(tapGesture)
-        
         return stackView
     }()
     
@@ -48,12 +43,19 @@ class RateView: UIView {
         return selectedRate
     }
     
+    var allowToRating: Bool = true {
+        didSet {
+            starsContainer.isUserInteractionEnabled = allowToRating
+        }
+    }
+    
     //MARK: - init -
     //
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
         setupConstraints()
+        addStarsContainerGesture()
         createStars()
         fillStars()
     }
@@ -62,6 +64,7 @@ class RateView: UIView {
         super.init(coder: coder)
         setupUI()
         setupConstraints()
+        addStarsContainerGesture()
         createStars()
         fillStars()
     }
@@ -97,6 +100,13 @@ class RateView: UIView {
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
         return imageView
+    }
+    
+    private func addStarsContainerGesture() {
+        /// Adding a UITapGestureRecognizer to our stack of stars to handle clicking on a star
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(rateWasTapped))
+        starsContainer.isUserInteractionEnabled = allowToRating
+        starsContainer.addGestureRecognizer(tapGesture)
     }
     
     @objc private func rateWasTapped(gesture: UITapGestureRecognizer) {
