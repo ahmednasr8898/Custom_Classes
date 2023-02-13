@@ -32,6 +32,7 @@ class CustomTextField: UITextField {
     var textPlaceholder: String = "" {
         didSet {
             self.placeholderLabel.text = textPlaceholder
+            self.placeholder = ""
         }
     }
     
