@@ -1,6 +1,6 @@
 //
 //  UITextField+ToggleButton.swift
-//  Test
+//  UITextField+ToggleButton
 //
 //  Created by Ahmed Nasr on 12/02/2023.
 //

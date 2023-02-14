@@ -1,6 +1,6 @@
 //
 //  RateView.swift
-//  RateStars
+//  RateView
 //
 //  Created by Ahmed Nasr on 09/02/2023.
 //

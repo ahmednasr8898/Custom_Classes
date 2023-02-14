@@ -1,6 +1,6 @@
 //
 //  LoadGIF.swift
-//  Test
+//  LoadGIF
 //
 //  Created by Ahmed Nasr on 12/02/2023.
 //
